@@ -3,26 +3,27 @@ let screen = document.querySelector(".screen");
 
 function renderScren() {
 
-    for (let i = 1; i <= 60; i++) {
+    for (let j = 1; j <= 100; j++) {
         let row = document.createElement("div");
         row.classList.add("row");
+
         for (let i = 1; i <= 100; i++) {
             let cell = document.createElement("div");
             cell.classList.add("cell");
+            cell.addEventListener("mouseover", changeColour);
             row.appendChild(cell);
         }
-
-        row.addEventListener("mouseover", changeColour);
-        row.addEventListener("mouseleave", changeColour);
+        
         screen.appendChild(row);
     }
 }
 
+
 function changeColour(event) {
-    if (event.target.classList.contains("cell")) {
-        event.target.backgroundColour = "black";
-        console.log("flag");
-    }
+
+    event.target.setAttribute("style", "background-color:black;");
+    console.log("flag");
+
 }
 
 
